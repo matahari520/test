@@ -1,0 +1,41 @@
+getgenv().Config = {
+    -- [main stuffs]
+    ["Continuous Hop On Start"] = true, -- if true, will start hopping right away to find pets from your filter
+    ["Auto Steal"] = false, -- turns on auto steal right away (can be buggy)
+    ["Auto Hop After Steal"] = true, -- hops to a new server after a steal
+    ["Auto Rejoin on Low Base Time"] = false, -- hops to new server if your base is about to run out (under 5s left)
+
+    ["Webhook Notifier"] = {
+        ["Enabled"] = false, -- sends a webhook when you steal a pet
+        ["WebhookURL"] = "" -- put your discord webhook url here
+    },
+
+    -- [esp / visual info]
+    ["Enable Highest Pet ESP"] = true, -- shows where the highest value pet is
+    ["Enable Player ESP"] = true, -- shows all other players
+    ["Enable Base Timers ESP"] = true, -- shows when each base runs out
+
+    -- [pet filter for server hopping, will stop if any conditions met]
+    ["Pet Filtering"] = {
+        ["Enabled"] = true, -- turns on filters below. if false, stops any best pet
+        ["AllowedRarities"] = {"Brainrot God", "Secret"}, -- only stops for these rarity pets
+        ["AllowedMutations"] = {"Rainbow", "Bloodrot"}, -- only stops for these types
+        ["AllowedAnimals"] = {"Garama and Madundung", "La Grande Combinasion", "Nuclearo Dinossauro"}, -- only stops for these pet names (case matters)
+        ["RequiredTraits"] = {"Nyan", "Fireworks"} -- pet must have all these traits
+    },
+    
+    -- leaves game if you steal a pet that matches this
+    ["PetToLeaveFor"] = {
+        ["Enabled"] = true, -- turns this on
+        ["Name"] = "Garama and Madundung", -- pet name to watch for
+        ["Mutation"] = "Rainbow" -- mutation needed (leave empty to allow any)
+    },
+
+    ["MaxPlayersForHop"] = 7, -- only joins servers with less than this number of people
+    ["CloseUiOnStart"] = false -- if true, hides the gui when script loads
+}
+
+-- IMPORTANT! YOU NEED TO CHANGE THIS TO YOUR OWN KEY!
+script_key="CHANGEKEY!"; -- IMPORTANT! YOU NEED TO CHANGE THIS TO YOUR OWN KEY!
+-- IMPORTANT! YOU NEED TO CHANGE THIS TO YOUR OWN KEY!
+loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/b33997ee8b14d4d847e841a7b578f962.lua"))()
